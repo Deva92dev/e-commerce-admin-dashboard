@@ -65,10 +65,19 @@ export const POST = async (
       collections,
       category,
       price,
-      weight,
+      sizes,
+      color,
     } = await req.json();
 
-    if (!title || !description || !media || !weight || !price || !category) {
+    if (
+      !title ||
+      !description ||
+      !media ||
+      !sizes ||
+      !color ||
+      !price ||
+      !category
+    ) {
       return new NextResponse(
         'Please provide all necessary details about product for update',
         { status: 400 }
@@ -111,7 +120,8 @@ export const POST = async (
         category,
         collections,
         price,
-        weight,
+        sizes,
+        color,
         tags,
       },
       { new: true }

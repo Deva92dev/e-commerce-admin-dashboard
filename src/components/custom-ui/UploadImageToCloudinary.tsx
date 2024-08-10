@@ -1,3 +1,4 @@
+'use client';
 import { useState } from 'react';
 import { CldUploadWidget } from 'next-cloudinary';
 import Image from 'next/image';

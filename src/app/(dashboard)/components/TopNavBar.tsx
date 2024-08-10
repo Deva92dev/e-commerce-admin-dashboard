@@ -3,11 +3,14 @@ import { UserButton } from '@clerk/nextjs';
 import Link from 'next/link';
 import React from 'react';
 import Menu from './Menu';
+import Image from 'next/image';
 
 const TopNavBar = () => {
   return (
     <div className='lg:hidden w-full h-20 px-4 flex flex-row justify-between items-center bg-[#75a7dd] relative'>
-      <h2>Logo</h2>
+      <Link href='/'>
+        <Image src='/logo.svg' alt='logo of store' width={100} height={70} />
+      </Link>
       <div className='flex flex-row gap-6 max-md:hidden'>
         {navLinks.map((link) => (
           <Link

@@ -15,7 +15,6 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import UploadImage from '@/components/custom-ui/UploadImage';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
@@ -44,8 +43,9 @@ const formSchema = z.object({
   media: z.array(z.string()).default([]),
   category: z.string(),
   collections: z.array(z.string()),
+  sizes: z.array(z.string()),
+  color: z.array(z.string()),
   tags: z.array(z.string()),
-  weight: z.coerce.number(),
   price: z.coerce.number(),
 });
 
@@ -93,7 +93,8 @@ const ProductForm = ({ initialData }: ProductFormProps) => {
           media: [],
           collections: [],
           tags: [],
-          weight: 1,
+          sizes: [],
+          color: [],
           price: 0,
           category: '',
         },
@@ -234,25 +235,6 @@ const ProductForm = ({ initialData }: ProductFormProps) => {
 
             <FormField
               control={form.control}
-              name='weight'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Weight (Kg)</FormLabel>
-                  <FormControl>
-                    <Input
-                      type='number'
-                      placeholder='weight'
-                      {...field}
-                      onKeyDown={handleKeyPress}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            <FormField
-              control={form.control}
               name='category'
               render={({ field }) => (
                 <FormItem>
@@ -321,6 +303,58 @@ const ProductForm = ({ initialData }: ProductFormProps) => {
                 )}
               />
             )}
+
+            <FormField
+              control={form.control}
+              name='sizes'
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Sizes</FormLabel>
+                  <FormControl>
+                    <MultiText
+                      placeholder='sizes'
+                      value={field.value}
+                      onChange={(size) =>
+                        field.onChange([...field.value, size])
+                      }
+                      onRemove={(sizeToRemove) =>
+                        field.onChange([
+                          ...field.value.filter(
+                            (item) => item !== sizeToRemove
+                          ),
+                        ])
+                      }
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name='color'
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Color</FormLabel>
+                  <FormControl>
+                    <MultiText
+                      placeholder='color'
+                      value={field.value}
+                      onChange={(c) => field.onChange([...field.value, c])}
+                      onRemove={(colorToRemove) =>
+                        field.onChange([
+                          ...field.value.filter(
+                            (item) => item !== colorToRemove
+                          ),
+                        ])
+                      }
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
           </div>
           <div className='flex flex-row gap-20'>
             <Button type='submit' className='bg-blue-600'>

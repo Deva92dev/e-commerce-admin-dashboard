@@ -19,7 +19,8 @@ export const POST = async (req: NextRequest) => {
       media,
       tags,
       collections,
-      weight,
+      sizes,
+      color,
       price,
       category,
     } = await req.json();
@@ -29,7 +30,8 @@ export const POST = async (req: NextRequest) => {
       !media ||
       !description ||
       !tags ||
-      !weight ||
+      !sizes ||
+      !color ||
       !price ||
       !collections ||
       !category
@@ -52,7 +54,8 @@ export const POST = async (req: NextRequest) => {
       tags,
       category,
       collections,
-      weight,
+      sizes,
+      color,
       price,
       userId,
     });

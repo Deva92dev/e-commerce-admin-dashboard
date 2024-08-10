@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import { ToasterProvider } from '@/lib/ToasterProvider';
+import '../../globals.css';
 import Sidebar from '../components/Sidebar';
 import TopNavBar from '../components/TopNavBar';
-import { ToasterProvider } from '@/lib/ToasterProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
   description: 'Data about Website',
 };
 
-export default function RootLayout({
+export default function DashboardLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

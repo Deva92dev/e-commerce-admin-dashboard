@@ -11,10 +11,8 @@ const ProductSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    weight: {
-      type: Number,
-      required: true,
-    },
+    sizes: [String],
+    color: [String],
     price: {
       type: mongoose.Schema.Types.Decimal128,
       get: (v: mongoose.Schema.Types.Decimal128) => parseFloat(v.toString()),

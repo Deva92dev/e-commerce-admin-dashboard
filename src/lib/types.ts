@@ -14,7 +14,8 @@ export type ProductType = {
   collections: [CollectionType];
   media: [string];
   tags: [string];
-  weight: number;
+  sizes: [string];
+  color: [string];
   price: number;
   createdAt: Date;
   updatedAt: Date;

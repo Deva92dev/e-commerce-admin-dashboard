@@ -1,12 +1,22 @@
 import { navLinks } from '@/lib/constants';
 import { UserButton } from '@clerk/nextjs';
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
 // make your link highlighted when clicking without using hooks
 const Sidebar = () => {
   return (
-    <div className=' h-screen left-0 top-0 sticky w-48 flex flex-col items-center shadow-xl font-medium bg-[#8fabca] max-lg:hidden'>
+    <div className=' h-screen left-0 top-0 sticky w-48 flex flex-col justify-center items-center shadow-xl font-medium bg-[#8fabca] max-lg:hidden'>
+      <Link href='/'>
+        <Image
+          src='/logo.svg'
+          priority
+          alt='logo of store'
+          width={100}
+          height={70}
+        />
+      </Link>
       <div className='flex flex-col gap-20 pt-24'>
         {navLinks.map((link) => (
           <Link

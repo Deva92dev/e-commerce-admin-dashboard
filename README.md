@@ -6,7 +6,7 @@
 
 - Go to the clerk docs , start a new project and do everything as the docs says.
 
-## Dashboard
+### Dashboard
 
 - Start building Dashboard with Sidenav and TopBar (make separate file for navIcons), make reusable components of them so that you can put them in layout.tsx file of admin dashboard and also customize them according to screen sizes
 - Dashboard, Collections, Products, Customers, Orders , edit Profile, these are pages of dashboard , customize them according to projects
@@ -54,3 +54,5 @@
 ## Products Page
 
 - Create new page, add routes everything like collections
+
+### E-Commerce Section Start
